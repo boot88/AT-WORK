@@ -1,0 +1,87 @@
+Инкапсуляция в PHP – это сокрытие внутренней реализации объекта и предоставление интерфейса для взаимодействия с ним. 
+Это позволяет защитить данные от некорректного использования и изменений извне. 
+
+Пример инкапсуляции:
+
+class BankAccount {
+    private $balance;
+
+    public function __construct($initialBalance) {
+        $this->balance = $initialBalance;
+    }
+
+    public function deposit($amount) {
+        $this->balance += $amount;
+    }
+
+    public function getBalance() {
+        return $this->balance;
+    }
+}
+
+$account = new BankAccount(100);
+$account->deposit(50);
+echo $account->getBalance(); // Output: 150
+
+В этом примере свойство $balance скрыто от внешнего мира с помощью модификатора доступа private, что предотвращает 
+его изменение или чтение напрямую. Доступ к балансу возможен только через методы deposit и getBalance.
+
+----------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------
+
+Наследование в PHP позволяет создавать новые классы на основе существующих, что способствует повторному использованию 
+кода и упрощает его поддержку. 
+
+Пример наследования
+
+class ElectricCar extends Car {
+    public $batteryCapacity;
+
+    public function __construct($color, $model, $batteryCapacity) {
+        parent::__construct($color, $model);
+        $this->batteryCapacity = $batteryCapacity;
+    }
+
+    public function getBatteryInfo() {
+        return "This electric car has a battery capacity of $this->batteryCapacity kWh.";
+    }
+}
+
+$myElectricCar = new ElectricCar("blue", "Tesla", 100);
+echo $myElectricCar->getDescription(); // Output: This car is a blue Tesla.
+echo $myElectricCar->getBatteryInfo(); // Output: This electric car has a battery capacity of 100 kWh.
+
+Класс ElectricCar наследуется от класса Car, добавляя новое свойство $batteryCapacity и метод getBatteryInfo. Конструктор класса
+ElectricCar вызывает конструктор родительского класса с помощью ключевого слова parent.
+
+----------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------
+
+Полиморфизм в PHP позволяет объектам разных классов обрабатывать данные одинаковым образом. Это достигается через
+методы, которые могут быть переопределены в дочерних классах. 
+
+Пример полиморфизма:
+
+class GasCar extends Car {
+    public function getDescription() {
+        return "This gas car is a $this->color $this->model.";
+    }
+}
+
+$myGasCar = new GasCar("green", "Ford");
+echo $myGasCar->getDescription(); // Output: This gas car is a green Ford.
+
+Класс GasCar переопределяет метод
+
+
+
+
+
+
+
+
+
+
+
+
+
