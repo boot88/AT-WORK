@@ -1,0 +1,13 @@
+function isPalindrome($string) {
+    // Удаление спецсимволов из строки и приведение её к нижнему регистру
+    $cleanString = strtolower(preg_replace("/[^A-Za-z0-9]/", '', $string));
+    
+    // Переворачиваем очищенную строку
+    $reversedString = strrev($cleanString);
+    
+    // Проверяем равенство между очищенной строкой и перевёрнутой
+    return $cleanString == $reversedString;
+}
+
+Эта функция принимает строку в качестве аргумента и возвращает true, если строка является палиндромом,
+и false в противном случае.
